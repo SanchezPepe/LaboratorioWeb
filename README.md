@@ -1,1 +1,1 @@
-# LaboratorioWeb
+# Laboratorio de Desarrollo Web
