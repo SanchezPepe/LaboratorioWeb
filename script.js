@@ -1,24 +1,21 @@
-function juego() {
-    var jug1 = prompt("Jugador 1: ");
-    var jug2 = prompt("Jugador 2: ");
-    if (jug1 === jug2) {
-        alert("EMPATE");
-    } else if (jug1 === "piedra" && jug2 == "papel") {
-        alert("Jugador 2");
-    } else if (jug1 === "piedra" && jug2 === "tijera") {
-        alert("Jugador 1");
-    } else if (jug1 === "papel" && jug2 === "tijera") {
-        alert("Jugador 1");
-    } else if (jug1 === "tijera" && jug2 === "papel") {
-        alert("Jugador 1");
-    } else if (jug1 === "tijera" && jug1 === "piedra") {
-        alert("Jugador 2");
+/**
+ * Recursos : 
+ */
+
+function generaPiramide() {
+    var tamBase = document.getElementById("size").value;
+    if (tamBase <= 0) {
+        alert("Tienes que ingresar un número mayor a 0");
+        return;
     } else {
-        alert("error");
+        var text = "";
+        for (i = 0; i <= tamBase; i++) {
+            for (j = 0; j < i; j++){
+                text += "  *  ";
+            } 
+            text += "<br/>";
+        }
+        var piramide = document.getElementById("piramide");
+        piramide.innerHTML = text;
     }
-}
-
-function generaPiramide(tamBase) {
-    var ptosTotales = 23;
-
 }
