@@ -21,10 +21,26 @@ function generaPiramide() {
 }
 
 function generaTarjeta() {
-    var para = document.createElement("div");
-    var node = document.createTextNode("Prueba");
-    para.appendChild(node);
+    var div = document.createElement("div");
+    var imagenID = Math.floor(Math.random() * 999) + 1;
+    var img = document.createElement("img");
+    var text = document.createElement("p");
+    var del = document.createElement("button");
+    //div.setAttribute(imagenID);
+    del.textContent = " X ";
+    //del.onclick = elimina(imagenID);
+    div.id = "card";
+    text.textContent = "ID: " + imagenID;
+    img.src = "https://picsum.photos/200/?image" + imagenID;
+    div.appendChild(del);
+    div.appendChild(text);
+    div.appendChild(img);
 
     var element = document.getElementById("tarjetas");
-    element.appendChild(para);
+    element.appendChild(div);
+}
+
+function elimina(elementID){
+    var element = document.getElementById(elementID);
+    element.parentNode.removeChild(element)
 }
