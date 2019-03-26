@@ -25,22 +25,24 @@ function generaTarjeta() {
     var imagenID = Math.floor(Math.random() * 999) + 1;
     var img = document.createElement("img");
     var text = document.createElement("p");
-    var del = document.createElement("button");
-    //div.setAttribute(imagenID);
-    del.textContent = " X ";
-    //del.onclick = elimina(imagenID);
-    div.id = "card";
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = " X ";
+    div.className = "card";
+    div.id = imagenID;
     text.textContent = "ID: " + imagenID;
     img.src = "https://picsum.photos/200/?image" + imagenID;
-    div.appendChild(del);
+    div.appendChild(deleteButton);
     div.appendChild(text);
     div.appendChild(img);
-
+    
     var element = document.getElementById("tarjetas");
     element.appendChild(div);
+    
+    deleteButton.addEventListener('click', elimina(imagenID), false);
 }
 
-function elimina(elementID){
+function elimina(elementID) {
+    alert(elementID);
     var element = document.getElementById(elementID);
-    element.parentNode.removeChild(element)
+    element.parentNode.removeChild(element);
 }
