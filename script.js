@@ -26,7 +26,12 @@ function generaTarjeta() {
     var img = document.createElement("img");
     var text = document.createElement("p");
     var deleteButton = document.createElement("button");
-    deleteButton.textContent = " X ";
+    deleteButton.textContent = "X";
+    deleteButton.id = "btElim"
+    deleteButton.addEventListener('click', function(){
+        var element = document.getElementById(imagenID);
+        element.parentNode.removeChild(element);
+    }, false);
     div.className = "card";
     div.id = imagenID;
     text.textContent = "ID: " + imagenID;
@@ -38,11 +43,5 @@ function generaTarjeta() {
     var element = document.getElementById("tarjetas");
     element.appendChild(div);
     
-    deleteButton.addEventListener('click', elimina(imagenID), false);
-}
 
-function elimina(elementID) {
-    alert(elementID);
-    var element = document.getElementById(elementID);
-    element.parentNode.removeChild(element);
 }

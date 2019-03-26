@@ -10,7 +10,7 @@
     flex-wrap: wrap;
 }
 
-#btelimina{
-    width: 10px;
-    
+#btElim{
+    display: block;
+    margin: auto 75%;
 }
