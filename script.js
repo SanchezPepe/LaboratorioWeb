@@ -44,55 +44,42 @@ function generaTarjeta() {
     element.appendChild(div);
 }
 
-function getLanguages() {
-    const Http = new XMLHttpRequest();
-    const url = "https://apiidiomas.firebaseapp.com/idiomas.json";
-    Http.open("GET", url);
-    Http.send();
+var json = null;
 
-    Http.onreadystatechange=(e)=>{
-        inserta(Http.responseText);
-        alert(Http.responseText);
-    }
-}
-
-function inserta(string){
+function inserta(texto){
     var div = document.createElement("div");
-    div.textContent = string;
-    var element = document.getElementById("body");
+    div.textContent = texto;
+    var element = document.getElementById("langs");
     element.appendChild(div);
 }
 
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
+function requestAPI(){
+    var request = new XMLHttpRequest()
 
-    // Check if the XMLHttpRequest object has a "withCredentials" property.
-    // "withCredentials" only exists on XMLHTTPRequest2 objects.
-    xhr.open(method, url, true);
-
-  } else if (typeof XDomainRequest != "undefined") {
-
-    // Otherwise, check if XDomainRequest.
-    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-
-  } else {
-
-    // Otherwise, CORS is not supported by the browser.
-    xhr = null;
-
-  }
-  return xhr;
+    request.open('GET', 'https://apiidiomas.firebaseapp.com/idiomas.json', true);
+    request.onload = function() {
+      // Begin accessing JSON data here
+      this.response.charAt(0) = '[';
+      this.response.charAt(this.response.length-1) = ']';
+      alert(this.response);
+      json = "[" + this.response + "]";
+      //json = JSON.parse(json);
+      if (request.status >= 200 && request.status < 400) {
+        document.getElementById("flag").textContent = "Fetch correcto";
+        getLanguages();
+      } else {
+        document.getElementById("flag").textContent = "Error al consumir del API";  
+        console.log('error');
+      }
+    }
+    request.send();
 }
 
-
-function prueba(){
-    var xhr = createCORSRequest("GET", "https://apiidiomas.firebaseapp.com/idiomas.json");
-    alert(xhr.status);
+function getLanguages(){
+    console.log(json);
+    json.forEach(lang => {
+        console.log(lang);
+        inserta(JSON.stringify(lang));
+    })
     
-    if (!xhr) {
-        throw new Error('CORS not supported');
-    }
 }
