@@ -40,14 +40,6 @@ function generaTarjeta() {
     element.appendChild(div);
 }
 
-function inserta(texto) {
-    var div = document.createElement("div");
-    div.textContent = texto;
-    var element = document.getElementById("langs");
-    element.appendChild(div);
-}
-
-
 // Idiomas
 var idiomas;
 
@@ -103,5 +95,55 @@ function createObjects() {
 
 function onClickSelect(evt) {
     var dpl = document.getElementById("dpl_langs");
-    alert(dpl.value);
+    createLangCard(dpl.value);
+}
+
+function createLangCard(lang){
+    var obj = idiomas.find(function(element){
+        return element.idioma == lang
+    });
+    createCard(obj.idioma, obj.precio, obj.profesor, obj.descuento, obj.niveles);
+
+}
+
+function createCard(idioma, precio, profesor, descuento, niveles){
+    var div = document.createElement("div");
+    div.className = "lang-card";
+    div.id = idioma;
+    var desc = parseInt(descuento.replace('%', ''));
+    var precioDesc = parseFloat(precio) * (1-(desc/100));
+    precioDesc = Number((precioDesc).toFixed(2));
+    var text = document.createElement("p");
+    var title = document.createElement("H3");
+    title.align = "center";
+    //Delete button
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "X";
+    deleteButton.id = "btElim-lang"
+    deleteButton.addEventListener('click', function () {
+        var element = document.getElementById(idioma);
+        element.parentNode.removeChild(element);
+    }, false);
+    div.appendChild(deleteButton);
+    // Card text
+    title.textContent = idioma;
+    div.appendChild(title);
+    text.innerHTML = 
+        "Precio: " + precio + "<br/>" +
+        "Descuento: " + descuento + "<br/>" +
+        "Precio con descuento: " + precioDesc + "<br/>" +
+        "Profesor: " + profesor + "<br/>" +
+        "Niveles: " + "<br/>";
+    div.appendChild(text);
+    // Niveles select
+    var nivSelect = document.createElement("select");
+    niveles.forEach(element => {
+        var nivel = document.createElement("option");
+        nivel.textContent = element;
+        nivSelect.appendChild(nivel);
+    });
+    div.appendChild(nivSelect);
+    
+    document.getElementById("tarjetas").appendChild(div);
+
 }
