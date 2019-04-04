@@ -60,7 +60,7 @@ function oldrequestAPI() {
             var keys = Object.keys(arr);
             var list = document.getElementById("dpl_langs");
             console.log(keys);
-            for (var i = 0; i < keys.length; i++){
+            for (var i = 0; i < keys.length; i++) {
                 var lang = document.createElement("option");
                 lang.textContent = keys[i];
                 list.appendChild(lang);
@@ -75,36 +75,59 @@ function oldrequestAPI() {
 }
 
 /**
+ * Idiomas
+ */
+var idiomas;
+
+/**
  * Makes the API call and creates an array of objects with each language
  */
-function requestAPI() {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'https://apiidiomas.firebaseapp.com/idiomas.json', true);
-    request.onload = function () {
-        var languages = [];
-        if (request.status >= 200 && request.status < 400) {
-            var jsonIdiomas = JSON.parse(this.response);
-            for (idioma in jsonIdiomas){
-                var obj = jsonIdiomas[idioma];
-                obj["idioma"] = idioma;
-                languages.push(obj);
+function requestAPI(url) {
+    return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                document.getElementById("flag").textContent = "Success";
+                resolve(this.responseText);
+            } else {
+                document.getElementById("flag").textContent = "Error al consumir del API";
+                reject(Error(req.statusText));
             }
-        } else {
-            document.getElementById("flag").textContent = "Error al consumir del API";
-            console.log('error');
-        }
-        alert(languages.length);
-    }
-    request.send();
+        };
+        xhr.onerror = function () {
+            reject(Error("Network Error"));
+        };
+
+        xhr.send();
+    });
 }
 
-function fillSelect(){
-    idiomas = requestAPI();
-    var select = document.getElementById("dpl_langs");
-    for (lang in idiomas){
-        alert(JSON.stringify(lang.idioma));
-        var opt = document.createElement("option");
-        opt.textContent = JSON.stringify(lang.idioma);
-        select.appendChild(opt);
+function test() {
+    var url = "https://apiidiomas.firebaseapp.com/idiomas.json";
+    requestAPI(url).then(function (response) {
+        idiomas = response;
+        console.log("Success!");
+    }, function (error) {
+        console.error("Failed!", error);
+    })
+    console.log(idiomas);
+    var json = JSON.parse(idiomas);
+    var languages = [];
+    for (idioma in json) {
+        var obj = json[idioma];
+        obj["idioma"] = idioma;
+        languages.push(obj);
     }
+    console.log(languages);
+
+        /**
+        var select = document.getElementById("dpl_langs");
+        for (lang in idiomas) {
+            alert(JSON.stringify(lang.idioma));
+            var opt = document.createElement("option");
+            opt.textContent = JSON.stringify(lang.idioma);
+            select.appendChild(opt);
+        }
+        */
 }
