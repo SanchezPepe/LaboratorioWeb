@@ -174,3 +174,20 @@ function generaReporte() {
     ticket.document.write("<html><head><title>Registro correcto</title></head><h3>" + text + "</h3></html>");
 
 }
+
+function randomCourses() {
+    var select = document.getElementById('dpl_langs');
+    var options = select.children;
+    var numberOfLangs = Math.floor(Math.random() * 6) + 1;
+    for (i = 0; i < numberOfLangs; i++) {
+        var num = Math.floor(Math.random() * options.length);
+        createLangCard(options[num].value);
+    }
+}
+
+function clearAll() {
+    var cards = document.getElementById("tarjetas");
+    while (cards.hasChildNodes()) {
+        cards.removeChild(cards.firstChild);
+    }
+}
