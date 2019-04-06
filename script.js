@@ -151,10 +151,14 @@ function createCard(idioma, precio, profesor, descuento, niveles) {
 function generaReporte() {
     var container = document.getElementById("tarjetas");
     var childs = container.childNodes;
+    if (childs[0] == undefined){
+        var r = childs.shift();
+        alert(r);
+    }
     var lang, precio, prof, level;
     var text = "Lenguages inscritos: <br/> <br/>";
     var total = 0;
-    for (i = 1; i < childs.length; i++) {
+    for (i = 0; i < childs.length; i++) {
         lang = childs[i].childNodes[1].textContent;
         precio = childs[i].childNodes[2].childNodes[4].textContent;
         prof = childs[i].childNodes[2].childNodes[6].textContent;
