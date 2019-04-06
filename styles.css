@@ -5,12 +5,12 @@
     padding-top: 15px;
 }
 
-#tarjetas{
+#tarjetas {
     display: flex;
     flex-wrap: wrap;
 }
 
-#btElim{
+#btElim {
     margin: auto 75%;
 }
 
@@ -21,10 +21,10 @@
     padding: 15px;
 }
 
-#btElim-lang{
+#btElim-lang {
     margin: auto 85%;
 }
 
-section{
+section {
     padding-top: 15px;
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title">
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <h1>Práctica JavaScript (11/10/2016)</h1>
+    <section id='Ejercicio1'>
+      <h2>Cambiar colores</h2>
+      <p>
+        Rojo si es menor a 4
+        Azul si es mayor a 4
+      </p>
+      <button type="button" id="boton" onclick="cambiaColor()">Cambia color</button>
+    </section>
+    <section id='Ejercicio2'>
+      <h2>Función con parámetros</h2>
+      <p>
+        Revisar consola para resultados
+      </p>
+      <button type="button" onclick="contador(prompt('Escribe un número'), prompt('Escribe una letra'))">Función</button>
+    </section>
+    <section id='Ejericio3'>
+      <h2>Sucesión de Fibonacci</h2>
+      <p>
+        Revisar consola para resultados
+      </p>
+      <input id="vueltasFib" type="text" name="fiboCont" placeholder="Número de vueltas">
+      <button id="fibon" type="button" onclick="fibonacci()">Fibonacci</button>
+    </section>
+    <section>
+      <h2>¿Es palindromo?</h2>
+      <input id="oracion" type="text" name="inputOracion" placeholder="Oración a comprobar">
+      <button id="pal" type="button" name="button" onclick="palindromo()">Comprobar</button>
+    </section>
+    <section>
+      <h2>Encuentra repetidos</h2>
+      <p>
+        Separar cada numero con un espacio
+      </p>
+      <input id="numeros" type="text" placeholder="Números">
+      <button id="cons" type="button" name="button" onclick="repetidos()">Consulta</button>
+    </section>
+    <script type="text/javascript" src='script.js'></script>
+  </body>
+</html>
