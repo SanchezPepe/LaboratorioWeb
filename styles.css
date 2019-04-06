@@ -11,19 +11,17 @@
 }
 
 #btElim{
-    display: block;
     margin: auto 75%;
 }
 
 .lang-card {
     border-style: solid;
     width: 200px;
-    height: auto;
+    height: 250px;
     padding: 15px;
 }
 
 #btElim-lang{
-    display: block;
     margin: auto 85%;
 }
 

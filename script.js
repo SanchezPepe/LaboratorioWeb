@@ -90,7 +90,7 @@ function createObjects() {
             lang.textContent = element.idioma;
             list.appendChild(lang);
         });
-    }, 5);
+    }, 250);
 }
 
 function onClickSelect(evt) {
@@ -98,22 +98,23 @@ function onClickSelect(evt) {
     createLangCard(dpl.value);
 }
 
-function createLangCard(lang){
-    var obj = idiomas.find(function(element){
+function createLangCard(lang) {
+    var obj = idiomas.find(function (element) {
         return element.idioma == lang
     });
     createCard(obj.idioma, obj.precio, obj.profesor, obj.descuento, obj.niveles);
 
 }
 
-function createCard(idioma, precio, profesor, descuento, niveles){
+function createCard(idioma, precio, profesor, descuento, niveles) {
     var div = document.createElement("div");
     div.className = "lang-card";
     div.id = idioma;
     var desc = parseInt(descuento.replace('%', ''));
-    var precioDesc = parseFloat(precio) * (1-(desc/100));
+    var precioDesc = parseFloat(precio) * (1 - (desc / 100));
     precioDesc = Number((precioDesc).toFixed(2));
     var text = document.createElement("p");
+    text.id = "text";
     var title = document.createElement("H3");
     title.align = "center";
     //Delete button
@@ -128,7 +129,7 @@ function createCard(idioma, precio, profesor, descuento, niveles){
     // Card text
     title.textContent = idioma;
     div.appendChild(title);
-    text.innerHTML = 
+    text.innerHTML =
         "Precio: " + precio + "<br/>" +
         "Descuento: " + descuento + "<br/>" +
         "Precio con descuento: " + precioDesc + "<br/>" +
@@ -143,7 +144,33 @@ function createCard(idioma, precio, profesor, descuento, niveles){
         nivSelect.appendChild(nivel);
     });
     div.appendChild(nivSelect);
-    
+
     document.getElementById("tarjetas").appendChild(div);
+}
+
+function generaReporte() {
+    var container = document.getElementById("tarjetas");
+    var childs = container.childNodes;
+    var lang, precio, prof, level;
+    var text = "Lenguages inscritos: <br/> <br/>";
+    var total = 0;
+    for (i = 1; i < childs.length; i++) {
+        lang = childs[i].childNodes[1].textContent;
+        precio = childs[i].childNodes[2].childNodes[4].textContent;
+        prof = childs[i].childNodes[2].childNodes[6].textContent;
+        level = childs[i].childNodes[3].value;
+
+        total += parseFloat(precio.replace("Precio con descuento: ", ""));
+        text += lang + "<br/>" + precio + "<br/>" + prof + "<br/>Nivel: " + level + "<br/>";
+        text += "-----------------------------------------------------<br/> <br/>"
+        console.log(lang);
+        console.log(precio);
+        console.log(prof);
+        console.log(level);
+    }
+    text += "TOTAL: " + Number((total).toFixed(2));
+
+    var ticket = window.open("");
+    ticket.document.write("<html><head><title>Registro correcto</title></head><h3>" + text + "</h3></html>");
 
 }

@@ -11,13 +11,23 @@
 <body onload="createObjects()">
 	<h1>Idiomas y cursos</h1>
 	<p>Para el funcionamiento es necesario instalar la siguiente extensión
-		<a target="_blank" href="https://bit.ly/2Uvm49Y">Allow CORS</a>
+		<ul>
+			<li>
+				Google Chrome <a target="_blank" href="https://bit.ly/2Uvm49Y">Allow CORS</a>
+			</li>
+			<li>
+				Firefox <a target="_blank" href="https://mzl.la/2WSjJUj">Allow CORS</a>
+			</li>
+			<li>
+				Opera <a target="_blank" href="https://bit.ly/2WQjvgo">Allow CORS</a>
+			</li>
+		</ul>
 	</p>
 	<h2>Selecciona un curso</h2>
 	<h3 id="flag"></h3>
 	<select id="dpl_langs" onchange="onClickSelect(event)">
 	</select>
-	<button>Genera reporte</button>
+	<button onclick="generaReporte()">Genera reporte</button>
 	<section id="tarjetas">
 	</section>
 </body>
