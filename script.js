@@ -66,6 +66,7 @@ function requestAPI(url) {
 
 // Onload() call
 function createObjects() {
+    clearAll();
     var url = "https://apiidiomas.firebaseapp.com/idiomas.json";
     requestAPI(url).then(function (response) {
         idiomas = response;
