@@ -13,10 +13,3 @@ Las etiquetas se escriben como en el html (Va a tomar a todas esas etiquetas )
 .border-red {
   border: 2px solid red;
 }
-
-/* px = pixeles em = tamaño de fuente del padre default=16px
-  porcentaje 100% */
-
-p{
-  font-size: 15px;
-}
