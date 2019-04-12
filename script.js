@@ -152,7 +152,7 @@ function createCard(idioma, precio, profesor, descuento, niveles) {
 function generaReporte() {
     var container = document.getElementById("tarjetas");
     var childs = container.childNodes;
-    if (childs[0] == undefined){
+    if (childs[0] == undefined) {
         var r = childs.shift();
         alert(r);
     }
