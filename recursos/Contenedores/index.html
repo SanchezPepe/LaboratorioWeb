@@ -1,74 +1,104 @@
 <!DOCTYPE html>
-<!-- Esta etiqueta indica que estamos usando html 5 -->
-<html lang="en">
-<!-- Con esta etiqueta iniciamos nuestro archivo html, abre al principio y cierra al final, también se indica el lenguaje de la página -->
+<html>
 
 <head>
-  <!-- head contien datos para el navegador, como el titulo de la pestaña, y que otrs archivos se van a utilizart -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contenedores</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <link rel="stylesheet" href="contenedores.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML Containers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        /**
+        Las clases se marcan con un.(Las clases se usan para delimitar a un grupo específico de elementos) Se pueden agregar varias clases a un mismo elemento
+        Los ids se marcan con un # (Los ids son únicos)
+        Las etiquetas se escriben como en el HTML (Va a tomar a todas esas etiquetas)
+        **/
+        .border {
+            border: 3px solid black;
+            margin: 1px;
+        }
+    </style>
+
 </head>
 
 <body>
-  <header class="hero is-primary">
-    <h2 class="subtitle is-4 is-spaced">Header</h2>
-    <p class="content">
-    <nav class="hero is-success">
-      <h2 class="subtitle">Nav</h2>
-      <p class="content">
-        Nav se utiliza para la barra de navegación, es donde se
-        ponen las distintas secciones de la página para que que el
-        usuario pueda navegar
-      </p>
-    </nav>
-  </header>
-  <main class="container border">
-    <h2 class="subtitle">Main</h2>
-    <p>
-    </p>
-    <div class="columns">
-      <section class="column is-two-thirds border">
-        <h2 class="subtitle">Section</h2>
-        <p>
-
+    <section class="section">
+        <h1 class="title">
+            Contenedores HTML
+        </h1>
+        <p class="subtitle">
+            Ejemplo gráfico de los diferentes tipos de contenedores en <strong>HTML</strong>
         </p>
-        <article class="border-red">
-          <h2 class="subtitle">Article</h2>
-          <p>
-            Article se usa para delimitar un elemento específico dentro
-            de un grupo de elementons parecidos (Como dentro de un seccion)
-          </p>
-        </article>
-      </section>
-      <aside class="column border">
-        <h2 class="subtitle">Aside</h2>
-        <p>
-          Aside se usa para crear una barra lateral que tenga
-          contenido secundario
-        </p>
-        <article class="border-red">
-          <h2 class="subtitle">Article</h2>
-          <div class="border">
-            <h2 class="subtitle">Div</h2>
-            <p>
-              Div es el contenedor más basico de todos, no indica lugar
-              ni comportamiento, puede ser usado para cualquier cosa
+        <div class="notification border has-background-grey-lighter">
+            <h1 class="title">Body</h1>
+            <p class="subtitle has-text-weight-bold">
+                Define el contenido principal del HTML, es la sección del
+                que estará directamente visible en la página web.
             </p>
-          </div>
-        </article>
-      </aside>
-    </div>
-  </main>
-  <footer class="border">
-    <h2 class="subtitle">Footer</h2>
-    <p>
-    </p>
-  </footer>
+            <div class="border notification has-background-success">
+                <h1 class="title">Header</h1>
+                <p class="subtitle has-text-weight-bold">
+                    Header se utiliza para el encabezado, normalmente engloba
+                    al nav (Funciona como un div)
+                </p>
+                <div class="columns">
+                    <div class="column has-background-link border">
+                        <h1 class="title">Nav</h1>
+                        <p class="subtitle has-text-weight-bold">
+                            Nav se utiliza para la barra de navegación, es donde se
+                            ponen las distintas secciones de la página para que que el
+                            usuario pueda navegar
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="notification has-background-primary border">
+                <h1 class="title">Main</h1>
+                <p class="subtitle has-text-weight-bold">
+                    En el main se pone el contenido principal, engloba todas
+                    las secciones principales de nuestra página
+                </p>
+                <div class="columns">
+                    <div class="column has-background-warning is-two-thirds border">
+                        <h1 class="title">Section</h1>
+                        <p class="subtitle has-text-weight-bold">
+                            Los seccions se usan para delimitar secciones generales
+                            dentro de nuestra página, engloba un tema en común o un
+                            grupo de elementos parecidos.
+                        </p>
+                        <div class="column has-background-grey-light border">
+                            <h1 class="title">Article</h1>
+                            <p class="subtitle has-text-weight-bold">
+                                Article se usa para delimitar un elemento específico dentro
+                                de un grupo de elementons parecidos (Como dentro de un seccion)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column has-background-danger border">
+                        <h1 class="title">Aside</h1>
+                        <p class="subtitle has-text-weight-bold">
+                            Aside se usa para crear una barra lateral que tenga
+                            contenido secundario
+                        </p>
+                        <div class="column has-background-white-ter border">
+                            <h1 class="title">Div</h1>
+                            <p class="subtitle has-text-weight-bold">
+                                Div es el contenedor más basico de todos, no indica lugar ni comportamiento, puede ser
+                                usado para cualquier cosa
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="notification has-background-info border">
+                <h1 class="title">Footer</h1>
+                <p class="subtitle has-text-weight-bold">
+                    Se utiliza para identificar la barra final de la página,
+                    generalmente se ponen terminos y condiciones o datos legales
+                </p>
+            </div>
+        </div>
+    </section>
 </body>
-
 
 </html>

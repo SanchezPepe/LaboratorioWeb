@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- Esta etiqueta indica que estamos usando html 5 -->
+<html lang="en">
+<!-- Con esta etiqueta iniciamos nuestro archivo html, abre al principio y cierra al final, también se indica el lenguaje de la página -->
+
+<head>
+  <!-- head contien datos para el navegador, como el titulo de la pestaña, y que otrs archivos se van a utilizart -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contenedores</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="contenedores.css">
+</head>
+
+<body>
+  <header class="border">
+    <h2 class="subtitle">Header</h2>
+    <p>
+      Header se utiliza para el encabezado, normalmente engloba
+      al nav (Funciona como un div) </p>
+    <nav class="border">
+      <h2 class="subtible">Nav</h2>
+      <p>
+        Nav se utiliza para la barra de navegación, es donde se
+        ponen las distintas secciones de la página para que que el
+        usuario pueda navegar
+      </p>
+    </nav>
+  </header>
+  <main class="container border">
+    <h2 class="subtitle">Main</h2>
+    <p>
+      En main vamos a poner nuestro conenido principal, engloba todas
+      las secciones principales de nuestra página
+    </p>
+    <div class="columns">
+      <section class="column is-two-thirds border">
+        <h2 class="subtitle">Section</h2>
+        <p>
+          Los seccions se usan para delimitar secciones generales
+          dentro de nuestra página, engloba un tema en común o un
+          grupo de elementos parecidos.
+        </p>
+        <article class="border-red">
+          <h2 class="subtitle">Article</h2>
+          <p>
+            Article se usa para delimitar un elemento específico dentro
+            de un grupo de elementons parecidos (Como dentro de un seccion)
+          </p>
+        </article>
+      </section>
+      <aside class="column border">
+        <h2 class="subtitle">Aside</h2>
+        <p>
+          Aside se usa para crear una barra lateral que tenga
+          contenido secundario
+        </p>
+        <article class="border-red">
+          <h2 class="subtitle">Article</h2>
+          <div class="border">
+            <h2 class="subtitle">Div</h2>
+            <p>
+              Div es el contenedor más basico de todos, no indica lugar
+              ni comportamiento, puede ser usado para cualquier cosa
+            </p>
+          </div>
+        </article>
+      </aside>
+    </div>
+  </main>
+  <footer class="border">
+    <h2 class="subtitle">Footer</h2>
+    <p>
+      Footer se utiliza para identificar la barra final de la página,
+      generalmente se ponen terminos y condiciones o datos legales
+    </p>
+  </footer>
+</body>
+
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-half">
+    <p class="bd-notification is-primary">
+      <code class="html">is-half</code><br>
+    </p>
+  </div>
+</div>
+
+</html>
+<!--
+        <section class="hero is-success is-medium">
+
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title">Primary title</h1>
+              <h2 class="subtitle">Subtitle</h2>
+            </div>
+          </div>
+        </section>
+-->
