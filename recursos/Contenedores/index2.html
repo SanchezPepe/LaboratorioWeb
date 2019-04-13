@@ -4,31 +4,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>HTML Containers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
 <body>
     <section class="section">
-        <div class="container">
-            <h1 class="title">
-                Contenedores HTML
-            </h1>
-            <p class="subtitle">
-                Ejemplo gráfico de los diferentes tipos de contenedores en <strong>HTML</strong>
-            </p>
-            <p class="subtitle has-text-weight-bold">Body</p>
-            <section class="notification">
-                <div class="columns notification">
-                    <div class="column has-background-success">
-                        <h1 class="title">Header</h1>
-                        <p class="subtitle has-text-weight-bold">
-                            Header se utiliza para el encabezado, normalmente engloba
-                            al nav (Funciona como un div)
-                        </p>
-
-                        <div class="column has-background-primary">
+        <h1 class="title">
+            Contenedores HTML
+        </h1>
+        <p class="subtitle">
+            Ejemplo gráfico de los diferentes tipos de contenedores en <strong>HTML</strong>
+        </p>
+        <p class="subtitle has-text-weight-bold">Body</p>
+        <section class="notification">
+            <div class="notification has-background-danger">
+                <h1 class="title">Header</h1>
+                <p class="subtitle has-text-weight-bold">
+                    Header se utiliza para el encabezado, normalmente engloba
+                    al nav (Funciona como un div)
+                </p>
+                <div class="columns">
+                    <div class="column has-background-warning">
+                        <div>
                             <h1 class="title">Nav</h1>
                             <p class="subtitle has-text-weight-bold">
                                 Nav se utiliza para la barra de navegación, es donde se
@@ -38,45 +37,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="notification has-background-primary">
-                    <h1 class="title">Main</h1>
-                    <p class="subtitle has-text-weight-bold">
-                        En main vamos a poner nuestro conenido principal, engloba todas
-                        las secciones principales de nuestra página
-                    </p>
-                    <div class="columns">
-                        <div class="column has-background-warning">
-                            <div>
-                                <h1 class="title">Section</h1>
-                                <p class="subtitle has-text-weight-bold">
-                                    Los seccions se usan para delimitar secciones generales
-                                    dentro de nuestra página, engloba un tema en común o un
-                                    grupo de elementos parecidos.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="column has-background-success">
-                            <div>
-                                <h1 class="title">Aside</h1>
-                                <p class="subtitle has-text-weight-bold">
-                                    Aside se usa para crear una barra lateral que tenga
-                                    contenido secundario
-                                </p>
-                            </div>
+            </div>
+            <div class="notification has-background-primary">
+                <h1 class="title">Main</h1>
+                <p class="subtitle has-text-weight-bold">
+                    En main vamos a poner nuestro conenido principal, engloba todas
+                    las secciones principales de nuestra página
+                </p>
+                <div class="columns">
+                    <div class="column has-background-warning is-two-thirds">
+                        <div>
+                            <h1 class="title">Section</h1>
+                            <p class="subtitle has-text-weight-bold">
+                                Los seccions se usan para delimitar secciones generales
+                                dentro de nuestra página, engloba un tema en común o un
+                                grupo de elementos parecidos.
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="columns notification">
                     <div class="column has-background-success">
-                        <h1 class="title">Footer</h1>
-                        <p class="subtitle has-text-weight-bold">
-                            Se utiliza para identificar la barra final de la página,
-                            generalmente se ponen terminos y condiciones o datos legales
-                        </p>
+                        <div>
+                            <h1 class="title">Aside</h1>
+                            <p class="subtitle has-text-weight-bold">
+                                Aside se usa para crear una barra lateral que tenga
+                                contenido secundario
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+            <div class="notification has-background-info">
+                <h1 class="title">Footer</h1>
+                <p class="subtitle has-text-weight-bold">
+                    Se utiliza para identificar la barra final de la página,
+                    generalmente se ponen terminos y condiciones o datos legales
+                </p>
+            </div>
+        </section>
     </section>
 </body>
 
