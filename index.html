@@ -6,50 +6,84 @@
     <title>Laboratorio de Desarrollo Web</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
-    <script src="https://www.vantajs.com/dist/vanta.waves.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://www.vantajs.com/dist/vanta.topology.min.js"></script>
+    <script src="https://www.vantajs.com/vendor/three.r92.min.js"></script>
     <script>
         setTimeout(function () {
-            VANTA.WAVES({
-                el: "#vantajs",
-                color: 0xe56e00
+            VANTA.TOPOLOGY({
+                el: "#vantajs"
             })
-        }, );
+        }, 5)
     </script>
     <style>
-        html,
-        body {
-            height: 100%;
+        #vantajs {
+            height: 100px;
+        }
+
+        html {
+            width: auto;
+            margin: 0%;
+        }
+
+        .is-sidebar-menu {
+            padding: 2.5rem;
+        }
+
+        .is-sidebar-menu li a {
+            color: white;
+        }
+
+        .columns.is-fullheight {
+            min-height: calc(100vh - (3.25rem - .75rem));
+            max-height: calc(100vh - (3.25rem - .75rem));
+            height: calc(100vh - (3.25rem - .75rem));
+            display: flex;
+            flex-direction: row;
+            justify-content: stretch;
+        }
+
+        .columns.is-fullheight .column {
+            overflow-y: auto;
+        }
+
+        .is-main-content {
+            background: #dbdbdb;
         }
     </style>
 </head>
 
-<body class="content" id="vantajs">
-    <section class="section">
-        <h1 class="title">Laboratorio de Desarrollo Web ITAM</h1>
-        <aside class="menu has-text-weight-bold">
-            <p class="menu-label is-size-6 ">Ejercicios introductorios</p>
-            <ul class="menu-list is-size-5">
-                <li><a href="ejercicios/pyramids.html">Pirámide de base N</a></li>
-                <li><a href="ejercicios/cards.html">Tarjetas dinámicas</a></li>
-                <li><a href="ejercicios/idiomas.html">API Idiomas</a></li>
-                <li><a href="ejercicios/vue/vueIntro.html">Vue.js introduction</a></li>
-            </ul>
-            <p class="menu-label is-size-6">Ejercicios previos del curso de Desarrollo Web, Otoño
-                2016</p>
-            <ul class="menu-list is-size-5">
-                <li><a href="recursos/Contenedores/index.html">Contenedores de HTML: ejemplo gráfico</a></li>
-                <li><a href="recursos/GoogleCopy/index.html">Google copy: práctica CSS</a></li>
-                <li><a href="recursos/Piedra_Papel_Tijera_JS/index.html">Piedra, papel o tijera: JS</a></li>
-                <li><a href="recursos/PracticaJS/index.html">Ejemplos Javascript</a></li>
-            </ul>
-            <p class="menu-label is-size-6">Otros recursos</p>
-            <ul class="menu-list is-size-5">
-                <li><a href="recursos/Bulma/bulmaIntro.html">Bulma practice</a></li>
-            </ul>
-        </aside>
-        </ul>
-    </section>
+<body>
+    <div id="vantajs" class="columns is-fullheight">
+        <div class="column is-sidebar-menu is-hidden-mobile">
+            <section class="section">
+                <h1 class="title has-text-white">Laboratorio de Desarrollo Web ITAM</h1>
+                <aside class="menu has-text-weight-bold">
+                    <p class="menu-label is-size-6">Ejercicios introductorios</p>
+                    <ul class="menu-list is-size-5">
+                        <li><a href="ejercicios/pyramids.html">Pirámide de base N</a></li>
+                        <li><a href="ejercicios/cards.html">Tarjetas dinámicas</a></li>
+                        <li><a href="ejercicios/idiomas.html">API Idiomas</a></li>
+                        <li><a href="ejercicios/vue/vueIntro.html">Vue.js introduction</a></li>
+                    </ul>
+                    <p class="menu-label is-size-6">Ejercicios Curso Desarrollo Web, Otoño 2016</p>
+                    <ul class="menu-list is-size-5">
+                        <li><a href="recursos/Contenedores/index.html">Contenedores de HTML: ejemplo gráfico</a></li>
+                        <li><a href="recursos/GoogleCopy/index.html">Google copy: práctica CSS</a></li>
+                        <li><a href="recursos/Piedra_Papel_Tijera_JS/index.html">Piedra, papel o tijera: JS</a></li>
+                        <li><a href="recursos/PracticaJS/index.html">Ejemplos Javascript</a></li>
+                    </ul>
+                    <p class="menu-label is-size-6">Otros recursos</p>
+                    <ul class="menu-list is-size-5">
+                        <li><a href="recursos/Bulma/bulmaIntro.html">Bulma practice</a></li>
+                    </ul>
+                </aside>
+                </ul>
+            </section>
+        </div>
+
+    </div>
+
 
 </body>
 
