@@ -4,39 +4,52 @@
 <head>
     <meta charset="utf-8">
     <title>Laboratorio de Desarrollo Web</title>
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
+    <script src="https://www.vantajs.com/dist/vanta.waves.min.js"></script>
+    <script>
+        setTimeout(function () {
+            VANTA.WAVES({
+                el: "#vantajs",
+                color: 0xe56e00
+            })
+        }, );
+    </script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+    </style>
 </head>
 
-<body>
-    <h1>Laboratorio de Desarrollo Web ITAM</h1>
-    <h2>Ejercicios introductorios</h2>
-    <ol>
-        <li>
-            <a href="ejercicios/pyramids.html">Pirámide de base N</a>
-        </li>
-        <li>
-            <a href="ejercicios/cards.html">Tarjetas dinámicas</a>
-        </li>
-        <li>
-            <a href="ejercicios/idiomas.html">API Idiomas</a>
-        </li>
-        <li>
-            <a href="ejercicios/vue/vueIntro.html">Vue.js introduction</a>
-        </li>
-    </ol>
-
-    <h2>Recursos</h2>
-    <P>Ejercicios previos del curso de Desarrollo Web, Otoño 2016</P>
-    <ul>
-        <li><a href="recursos/Contenedores/index.html">Contenedores de HTML</a>: ejemplo gráfico</li>
-        <li><a href="recursos/GoogleCopy/index.html">Google copy</a>: práctica CSS</li>
-        <li><a href="recursos/Piedra_Papel_Tijera_JS/index.html">Piedra, papel o tijera</a>: JS</li>
-        <li><a href="recursos/PracticaJS/index.html">Ejemplos Javascript</a></li>
-    </ul>
-    <p>Otros recursos de práctica</p>
-    <ul>
-        <li><a href="recursos/Bulma/bulmaIntro.html">Bulma practice</a></li>
-    </ul>
+<body class="content" id="vantajs">
+    <section class="section">
+        <h1 class="title">Laboratorio de Desarrollo Web ITAM</h1>
+        <aside class="menu has-text-weight-bold">
+            <p class="menu-label is-size-6 ">Ejercicios introductorios</p>
+            <ul class="menu-list is-size-5">
+                <li><a href="ejercicios/pyramids.html">Pirámide de base N</a></li>
+                <li><a href="ejercicios/cards.html">Tarjetas dinámicas</a></li>
+                <li><a href="ejercicios/idiomas.html">API Idiomas</a></li>
+                <li><a href="ejercicios/vue/vueIntro.html">Vue.js introduction</a></li>
+            </ul>
+            <p class="menu-label is-size-6">Ejercicios previos del curso de Desarrollo Web, Otoño
+                2016</p>
+            <ul class="menu-list is-size-5">
+                <li><a href="recursos/Contenedores/index.html">Contenedores de HTML: ejemplo gráfico</a></li>
+                <li><a href="recursos/GoogleCopy/index.html">Google copy: práctica CSS</a></li>
+                <li><a href="recursos/Piedra_Papel_Tijera_JS/index.html">Piedra, papel o tijera: JS</a></li>
+                <li><a href="recursos/PracticaJS/index.html">Ejemplos Javascript</a></li>
+            </ul>
+            <p class="menu-label is-size-6">Otros recursos</p>
+            <ul class="menu-list is-size-5">
+                <li><a href="recursos/Bulma/bulmaIntro.html">Bulma practice</a></li>
+            </ul>
+        </aside>
+        </ul>
+    </section>
 
 </body>
 
