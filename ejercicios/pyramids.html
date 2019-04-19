@@ -13,12 +13,12 @@
             var help = document.getElementById("input-help");
             var tamBase = elem.value;
             if (tamBase <= 0 || tamBase > 50) {
-                elem.className = "input is-danger";
+                elem.className = "input is-medium is-danger";
                 help.className = "help is-danger";
                 help.textContent = "Ingresa una base entre 0 y 50";
                 return;
             } else {
-                elem.className = "input is-success";
+                elem.className = "input is-medium is-success";
                 help.className = "help is-success";
                 help.textContent = "Pirámide generada correctamente";
                 var text = "";
@@ -47,7 +47,7 @@
         <h2 class="subtitle">Ingresa un número entre 0 y 50 para generar la pirámide</h2>
         <div class="field">
             <p class="control has-icons-right">
-                <input id="size" class="input" placeholder="Base de la pirámide">
+                <input id="size" class="input is-medium" placeholder="Base de la pirámide">
             </p>
             <p id="input-help" class="help"></p>
         </div>
