@@ -3,18 +3,65 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Pirámide</title>
-    <script type="text/javascript" src="../script.js"></script>
+    <script>
+        function generaPiramide() {
+            var elem = document.getElementById("size");
+            var help = document.getElementById("input-help");
+            var tamBase = elem.value;
+            if (tamBase <= 0 || tamBase > 50) {
+                elem.className = "input is-danger";
+                help.className = "help is-danger";
+                help.textContent = "Ingresa una base entre 0 y 50";
+                return;
+            } else {
+                elem.className = "input is-success";
+                help.className = "help is-success";
+                help.textContent = "Pirámide generada correctamente";
+                var text = "";
+                for (i = 0; i <= tamBase; i++) {
+                    for (j = 0; j < i; j++) {
+                        text += "<i class='fab fa-lg fa-github-square'></i>";
+                    }
+                    text += "<br/>";
+                }
+                var piramide = document.getElementById("piramide");
+                piramide.innerHTML = text;
+            }
+        }
+
+        function randomBase() {
+            var random = Math.floor(Math.random() * (30 - 2)) + 2;
+            document.getElementById("size").value = random;
+            generaPiramide();
+        }
+    </script>
 </head>
 
 <body>
-    <h1>Pirámide de base N</h1>
-    <h2>Ingresa un número mayor a cero para generar la pirámide</h2>
-    <form>
-        <input id="size" type="text" placeholder="N" required>
-        <button type="button" onclick="generaPiramide()">Genera</button>
-    </form>
-    <div id="piramide" align="center" style="font-size:250%;"></div>
+    <section class="section">
+        <h1 class="title">Octocat N-Base Pyramid</h1>
+        <h2 class="subtitle">Ingresa un número entre 0 y 50 para generar la pirámide</h2>
+        <div class="field">
+            <p class="control has-icons-right">
+                <input id="size" class="input" placeholder="Base de la pirámide">
+            </p>
+            <p id="input-help" class="help"></p>
+        </div>
+        <div class="field is-grouped">
+            <p class="control">
+                <button onclick="generaPiramide()" class="button is-link">Genera pirámide</button>
+            </p>
+            <p class="control">
+                <button onclick="randomBase()" class="button is-inverted">Random base (1-30)</button>
+            </p>
+        </div>
+    </section>
+
+    <div id="piramide" class="has-text-centered" style="font-size:250%;"></div>
 </body>
 
 </html>
