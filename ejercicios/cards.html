@@ -4,19 +4,71 @@
 <head>
     <meta charset="utf-8">
     <title>Tarjetas</title>
-    <script type="text/javascript" src="../script.js"></script>
-    <link rel="stylesheet" href="../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script>
+        function generaTarjeta() {
+            var div = document.createElement("div");
+            var imagenID = Math.floor(Math.random() * 999) + 1;
+            var img = document.createElement("img");
+            var text = document.createElement("p");
+            var deleteButton = document.createElement("button");
+            deleteButton.textContent = "X";
+            deleteButton.id = "btElim"
+            deleteButton.addEventListener('click', function () {
+                var element = document.getElementById(imagenID);
+                element.parentNode.removeChild(element);
+            }, false);
+            div.className = "card";
+            div.id = imagenID;
+            text.textContent = "ID: " + imagenID;
+            img.src = "https://picsum.photos/200/?image" + imagenID;
+            div.appendChild(deleteButton);
+            div.appendChild(text);
+            div.appendChild(img);
+
+            var element = document.getElementById("tarjetas");
+            element.appendChild(div);
+        }
+
+        function clearAll() {
+            var cards = document.getElementById("tarjetas");
+            while (cards.hasChildNodes()) {
+                cards.removeChild(cards.firstChild);
+            }
+        }
+    </script>
+    <style>
+        .card {
+            border-style: solid;
+            width: 250px;
+            height: 300px;
+            padding-top: 15px;
+        }
+
+        #tarjetas {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #btElim {
+            margin: auto 75%;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <h1>Tarjetas</h1>
-        <h2>Genera una tarjeta</h2>
-            <button onclick="generaTarjeta()">Genera</button>
-            <h3>Tarjetas generadas</h3>
-            <div id="tarjetas" align="center">
+    <section class="section">
+        <h1 class="title">Tarjetas</h1>
+        <h2 class="subtitle">Genera una tarjeta</h2>
+        <button class="button" onclick="generaTarjeta()">Genera</button>
+        <button class="button is-danger" onclick="clearAll()">Clear all</button>
+        <section class="section">
+            <div class="has-text-centered" id="tarjetas">
             </div>
-    </div>
+        </section>
+    </section>
 
 </body>
 
