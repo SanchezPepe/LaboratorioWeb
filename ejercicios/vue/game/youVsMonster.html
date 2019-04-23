@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Vue.js exercises</title>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">You vs Monster</h1>
+            <h2 class="subtitle">
+                <a target="_blank" href="https://bit.ly/2KYVqTD">Vue.js tutorial</a>
+            </h2>
+            <div class="columns">
+                <div class="column">
+                    <h2 class="subtitle has-text-centered">YOU</h2>
+                    <div class="notification" id="health you" style="background-color:green"></div>
+                </div>
+                <div class="column">
+                    <h2 class="subtitle has-text-centered">Monster</h2>
+                    <div class="notification" id="health monster" style="background-color:green"></div>
+                </div>
+            </div>
+
+            <div class="buttons are-medium is-hidden" id="button-set">
+                <a class="button is-primary is-focused">Start</a>
+            </div>
+            <div class="buttons has-text-centered" id="button-set">
+                <a class="button is-primary is-focused">Attack</a>
+                <a class="button is-link is-focused">Super-Attack</a>
+                <a class="button is-success is-focused">Heal</a>
+                <a class="button is-danger is-focused">Give up</a>
+            </div>
+
+            <div id="log">
+                <h3 class="has-text-centered"> <strong>LOG</strong> </h3>
+                <div id="log-container">
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+</body>
+
+</html>
