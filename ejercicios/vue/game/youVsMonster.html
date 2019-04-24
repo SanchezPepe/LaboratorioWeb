@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <link rel="stylesheet" href="styles.css">
-    <title>Vue.js exercises</title>
+    <title>Vue.js Game</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="column">
                     <h2 class="subtitle has-text-centered">Monster</h2>
-                    <progress id="monster" class="progress is-success is-large" value="85" max="100">60%</progress>
+                    <progress id="monster" class="progress is-danger is-large" value="85" max="100">40%</progress>
                 </div>
             </div>
 
@@ -46,6 +46,60 @@
                 </div>
                 <span v-if="hasMessage" :title="vue">{{ message }}</span>
             </div>
+
+
+        </div>
+        <div class="container">
+
+            <div id="app">
+                {{ message }}
+            </div>
+            <p>-----------------------------------</p>
+            <div id="app-2">
+                <span v-bind:title="message">
+                    Hover your mouse over me for a few seconds
+                    to see my dynamically bound title!
+                </span>
+            </div>
+            <p>-----------------------------------</p>
+            <div id="app-3">
+                <span v-if="seen">Now you see me</span>
+            </div>
+            <p>-----------------------------------</p>
+            <div id="app-4">
+                <ol>
+                    <li v-for="todo in todos">
+                        {{ todo.text }}
+                    </li>
+                </ol>
+            </div>
+            <p>-----------------------------------</p>
+            <div id="app-5">
+                <p>{{ message }}</p>
+                <button v-on:click="reverseMessage">Reverse Message</button>
+            </div>
+            <p>-----------------------------------</p>
+            <div id="app-6">
+                <p>{{ message }}</p>
+                <input v-model="message">
+            </div>
+            <p>-----------------------------------</p>
+            <div id="app-7">
+                <ol>
+                    <!--
+                        Now we provide each todo-item with the todo object
+                        it's representing, so that its content can be dynamic.
+                        We also need to provide each component with a "key",
+                        which will be explained later.
+                    -->
+                    <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+                </ol>
+            </div>
+
+            <ol>
+                <!-- Create an instance of the todo-item component -->
+                <todo-item></todo-item>
+            </ol>
 
 
         </div>
