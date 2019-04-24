@@ -25,48 +25,50 @@
 
 <body onload="createObjects()">
 	<section class="section">
-		<h1 class="title">Idiomas y cursos</h1>
-		<p class="is-size-5"> Para el funcionamiento es necesario instalar la siguiente extensión</p>
-		<br>
-		<div class="list is-hoverable" style="width:300px">
-			<a class="list-item" target="_blank" href="https://bit.ly/2Uvm49Y">Google Chrome - Allow CORS</a>
-			<a class="list-item" target="_blank" href="https://mzl.la/2WSjJUj">Firefox - Allow CORS</a>
-			<a class="list-item" target="_blank" href="https://bit.ly/2WQjvgo">Opera - Allow CORS</a>
-		</div>
-		<h3 class="subtitle" id="flag"></h3>
-		<h2 class="subtitle"><strong> Selecciona un curso </strong></h2>
-		<div class="field is-grouped">
-			<div class="control has-icons-left">
-				<div class="select is-medium is-rounded">
-					<select id="dpl_langs" onchange="onClickSelect(event)">
-					</select>
-				</div>
-				<span class="icon is-medium is-left">
-					<i class="fas fa-globe"></i>
-				</span>
+		<div class="container">
+			<h1 class="title">Idiomas y cursos</h1>
+			<p class="is-size-5"> Para el funcionamiento es necesario instalar la siguiente extensión</p>
+			<br>
+			<div class="list is-hoverable" style="width:300px">
+				<a class="list-item" target="_blank" href="https://bit.ly/2Uvm49Y">Google Chrome - Allow CORS</a>
+				<a class="list-item" target="_blank" href="https://mzl.la/2WSjJUj">Firefox - Allow CORS</a>
+				<a class="list-item" target="_blank" href="https://bit.ly/2WQjvgo">Opera - Allow CORS</a>
 			</div>
+			<h3 class="subtitle" id="flag"></h3>
+			<h2 class="subtitle"><strong> Selecciona un curso </strong></h2>
 			<div class="field is-grouped">
-				<p class="control">
-					<a onclick="randomCourses()" class="button is-link is-medium">
-						Random
-					</a>
-				</p>
-				<p class="control">
-					<a onclick="clearAll()" class="button is-danger is-medium">
-						Clear all
-					</a>
-				</p>
-				<p class="control">
-					<a onclick="generaReporte()" class="button is-success is-medium">
-						Reporte
-					</a>
-				</p>
+				<div class="control has-icons-left">
+					<div class="select is-medium is-rounded">
+						<select id="dpl_langs" onchange="onClickSelect(event)">
+						</select>
+					</div>
+					<span class="icon is-medium is-left">
+						<i class="fas fa-globe"></i>
+					</span>
+				</div>
+				<div class="field is-grouped">
+					<p class="control">
+						<a onclick="randomCourses()" class="button is-link is-medium">
+							Random
+						</a>
+					</p>
+					<p class="control">
+						<a onclick="clearAll()" class="button is-danger is-medium">
+							Clear all
+						</a>
+					</p>
+					<p class="control">
+						<a onclick="generaReporte()" class="button is-success is-medium">
+							Reporte
+						</a>
+					</p>
+				</div>
 			</div>
+
+			<section id="tarjetas">
+
+			</section>
 		</div>
-
-		<section id="tarjetas">
-
-		</section>
 	</section>
 
 	<div class="modal" id="modal">
@@ -77,7 +79,7 @@
 				<button class="delete" aria-label="close" onclick="activeModal()"></button>
 			</header>
 			<section id="modal-text" class="modal-card-body">
-				
+
 
 			</section>
 
@@ -86,6 +88,7 @@
 			</footer>
 		</div>
 	</div>
+
 </body>
 
 </html>
