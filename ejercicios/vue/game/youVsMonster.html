@@ -20,29 +20,31 @@
             <div class="columns">
                 <div class="column">
                     <h2 class="subtitle has-text-centered">YOU</h2>
-                    <div class="notification" id="health you" style="background-color:green"></div>
+                    <progress id="you" class="progress is-success is-large" value="100" max="100">60%</progress>
                 </div>
                 <div class="column">
                     <h2 class="subtitle has-text-centered">Monster</h2>
-                    <div class="notification" id="health monster" style="background-color:green"></div>
+                    <progress id="monster" class="progress is-success is-large" value="85" max="100">60%</progress>
                 </div>
             </div>
 
-            <div class="buttons are-medium is-hidden" id="button-set">
-                <a class="button is-primary is-focused">Start</a>
+            <div id="start" class="notification buttons has-text-centered are-medium" :class="{'is-hidden': hide}">
+                <a @click="startGame" class="button is-primary is-focused">Start</a>
             </div>
-            <div class="buttons has-text-centered" id="button-set">
+            <div id="play" class="notification buttons has-text-centered are-medium" v-bind:class="{'is-hidden': hide}">
                 <a class="button is-primary is-focused">Attack</a>
                 <a class="button is-link is-focused">Super-Attack</a>
                 <a class="button is-success is-focused">Heal</a>
-                <a class="button is-danger is-focused">Give up</a>
+                <a id="giveup" @click="endGame" class="button is-danger is-focused">Give up</a>
             </div>
 
             <div id="log">
                 <h3 class="has-text-centered"> <strong>LOG</strong> </h3>
-                <div id="log-container">
-
+                <div id="log-container" class="buttons">
+                    <button class="button" @click="logMessage">Click me!</button>
+                    <button class="button" @click="toggleMessage">Toggle</button>
                 </div>
+                <span v-if="hasMessage" :title="vue">{{ message }}</span>
             </div>
 
 
@@ -50,5 +52,8 @@
     </section>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="script.js"></script>
+
 
 </html>
