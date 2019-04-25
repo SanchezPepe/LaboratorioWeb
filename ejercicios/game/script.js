@@ -1,11 +1,3 @@
-const app = new Vue({
-    el: '#load-date',
-    data: {
-        message: 'Ejemplo con VueJs',
-        vue: 'You loaded this page on ' + new Date().toLocaleString(),
-    }
-})
-
 const startButton = new Vue({
     el: '#start',
     data: {
@@ -25,43 +17,71 @@ const playButtons = new Vue({
         hide: true,
     },
     methods: {
+        changeHealth(obj, num) {
+            if (obj.health != 0 || obj.health != 100)
+                obj.health += Math.floor(Math.random() * num)
+        },
         endGame() {
             playButtons.hide = !playButtons.hide,
             startButton.hide = !startButton,
-            monsterHealth.health = 100,
-            yourHealth.health = 100
+            monster.restart(),
+            you.restart()
         },
-        attack() {
-            monsterHealth.health -= Math.floor(Math.random() * 15);
-            yourHealth.health -= Math.floor(Math.random() * 15);            
-        },
-        superAttack() {
-            monsterHealth.health -= Math.floor(Math.random() * 30);
-            yourHealth.health -= Math.floor(Math.random() * 30);            
+        attack(num) {
+            this.changeHealth(monster, num),
+            this.changeHealth(you, num),
+            this.changeBar(monster),
+            this.changeBar(you)
         },
         heal() {
-            yourHealth.health += Math.floor(Math.random() * 15);            
+            this.changeHealth(monster, 15),
+            this.changeHealth(you, 15),
+            this.changeBar(monster),
+            this.changeBar(you)
+        },
+        changeBar(obj) {
+            if (obj.health <= 30) {
+                obj.green = false;
+                obj.red = true;
+            } else {
+                obj.green = true;
+                obj.red = false
+            }
         },
     },
 })
 
-const yourHealth = new Vue({
+const you = new Vue({
     el: '#you',
     data: {
         health: 100,
+        green: true,
+        red: false
+    },
+    methods: {
+        restart(){
+            this.green = true,
+            this.red = false,
+            this.health = 100
+        }
     },
 })
 
-const monsterHealth = new Vue({
+const monster = new Vue({
     el: '#rival',
     data: {
         health: 100,
+        green: true,
+        red: false
+    },
+    methods: {
+        restart(){
+            this.green = true,
+            this.red = false,
+            this.health = 100
+        }
     },
 })
-
-
-
-
 
 //====================================TESTING
 
@@ -78,25 +98,6 @@ var app4 = new Vue({
                 text: 'Build something awesome'
             }
         ]
-    }
-})
-
-var app5 = new Vue({
-    el: '#app-5',
-    data: {
-        message: 'Hello Vue.js!'
-    },
-    methods: {
-        reverseMessage: function () {
-            this.message = this.message.split('').reverse().join('')
-        }
-    }
-})
-
-var app6 = new Vue({
-    el: '#app-6',
-    data: {
-        message: 'Hello Vue!'
     }
 })
 

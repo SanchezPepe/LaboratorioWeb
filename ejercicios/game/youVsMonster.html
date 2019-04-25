@@ -17,17 +17,14 @@
             <h2 class="subtitle">
                 <a target="_blank" href="https://bit.ly/2KYVqTD">Vue.js tutorial</a>
             </h2>
-            <div id="load-date">
-                <span :title="vue">{{ message }}</span>
-            </div>
             <div class="columns">
                 <div id="you" class="column">
                     <h2 class="subtitle has-text-centered">YOU</h2>
-                    <progress class="progress is-success is-large" value="100" max="100" :value="health"></progress>
+                    <progress class="progress is-success is-large" value="100" max="100" :value="health" :class="{'is-success': green, 'is-danger': red}"></progress>
                 </div>
                 <div id="rival" class="column">
                     <h2 class="subtitle has-text-centered">Monster</h2>
-                    <progress class="progress is-danger is-large" value="100" max="100" :value="health"></progress>
+                    <progress class="progress is-success is-large" value="100" max="100" :value="health" :class="{'is-success': green, 'is-danger': red}"></progress>
                 </div>
             </div>
 
@@ -35,8 +32,8 @@
                 <a @click="startGame" class="button is-primary is-focused">Start</a>
             </div>
             <div id="play" class="notification buttons has-text-centered are-medium" :class="{'is-hidden': hide}">
-                <a @click="attack" class="button is-primary is-focused">Attack</a>
-                <a @click="superAttack" class="button is-link is-focused">Super-Attack</a>
+                <a @click="attack(-15)" class="button is-primary is-focused">Attack</a>
+                <a @click="attack(-30)" class="button is-link is-focused">Super-Attack</a>
                 <a @click="heal" class="button is-success is-focused">Heal</a>
                 <a @click="endGame" class="button is-danger is-focused">Give up</a>
             </div>
@@ -55,16 +52,7 @@
                     </li>
                 </ol>
             </div>
-            <p>-----------------------------------</p>
-            <div id="app-5">
-                <p>{{ message }}</p>
-                <button v-on:click="reverseMessage">Reverse Message</button>
-            </div>
-            <p>-----------------------------------</p>
-            <div id="app-6">
-                <p>{{ message }}</p>
-                <input v-model="message">
-            </div>
+
             <p>-----------------------------------</p>
             <div id="app-7">
                 <ol>
