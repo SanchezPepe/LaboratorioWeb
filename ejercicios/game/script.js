@@ -18,20 +18,32 @@ const playButtons = new Vue({
     },
     methods: {
         changeHealth(obj, num) {
+            var rand = Math.floor(Math.random() * num)
             if (obj.health != 0 || obj.health != 100)
-                obj.health += Math.floor(Math.random() * num)
+                obj.health += rand
+            return rand
         },
         endGame() {
             playButtons.hide = !playButtons.hide,
             startButton.hide = !startButton,
             monster.restart(),
-            you.restart()
+            you.restart(),
+            log.reset()
         },
         attack(num) {
-            this.changeHealth(monster, num),
-            this.changeHealth(you, num),
+            var mons = this.changeHealth(monster, num)
+            var me = this.changeHealth(you, num)
             this.changeBar(monster),
-            this.changeBar(you)
+            this.changeBar(you),
+            log.add(me, mons)
+            if (monster.health <= 0){
+                alert("YOU WIN")
+                this.endGame()
+            }
+            if (you.health <= 0) {
+                alert("MONSTER WIN")
+                this.endGame()
+            }
         },
         heal() {
             this.changeHealth(monster, 15),
@@ -83,12 +95,40 @@ const monster = new Vue({
     },
 })
 
-//====================================TESTING
+const log = new Vue({
+    el: '#log',
+    data:{
+        items: [],
+    },
+    methods: {
+        add(me, mons){
+            this.item = ['<div class="columns">' + 
+                            '<div class="column hero is-success">' + 
+                                '<h3 class="has-text-centered">' +
+                                    '<strong>' + "Ataque de: " + me +'</strong>' +
+                                '</h3>' +
+                            '</div>' +
+                            '<div class="column hero is-warning">' + 
+                                '<h3 class="has-text-centered">' +
+                                    '<strong>' + "Ataque de: " + mons + '</strong>' +
+                                '</h3>' +
+                            '</div>' +
+                         '</div></br>'];
+            this.items.push(this.item);
+        },
+        reset() {
+            this.items = []
+        }
+    },
+})
 
-var app4 = new Vue({
-    el: '#app-4',
-    data: {
-        todos: [{
+
+/**
+ 
+ var app4 = new Vue({
+     el: '#app-4',
+     data: {
+         todos: [{
                 text: 'Learn JavaScript'
             },
             {
@@ -110,17 +150,19 @@ var app7 = new Vue({
     el: '#app-7',
     data: {
         groceryList: [{
-                id: 0,
-                text: 'Vegetables'
-            },
-            {
-                id: 1,
-                text: 'Cheese'
-            },
-            {
-                id: 2,
-                text: 'Whatever else humans are supposed to eat'
-            }
-        ]
-    }
+            id: 0,
+            text: 'Vegetables'
+        },
+        {
+            id: 1,
+            text: 'Cheese'
+        },
+        {
+            id: 2,
+            text: 'Whatever else humans are supposed to eat'
+        }
+    ]
+}
 })
+
+*/
