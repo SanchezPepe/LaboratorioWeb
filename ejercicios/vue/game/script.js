@@ -1,18 +1,9 @@
-const ap = new Vue({
-    el: '#log',
+const app = new Vue({
+    el: '#load-date',
     data: {
         message: 'Ejemplo con VueJs',
-        vue: 'Esto es un ejemplo del uso de directivas',
-        hasMessage: true,
-    },
-    methods: {
-        logMessage() {
-            console.log(this.message);
-        },
-        toggleMessage() {
-            this.hasMessage = !this.hasMessage;
-        },
-    },
+        vue: 'You loaded this page on ' + new Date().toLocaleString(),
+    }
 })
 
 const startButton = new Vue({
@@ -36,8 +27,35 @@ const playButtons = new Vue({
     methods: {
         endGame() {
             playButtons.hide = !playButtons.hide,
-            startButton.hide = !startButton
+            startButton.hide = !startButton,
+            monsterHealth.health = 100,
+            yourHealth.health = 100
         },
+        attack() {
+            monsterHealth.health -= Math.floor(Math.random() * 15);
+            yourHealth.health -= Math.floor(Math.random() * 15);            
+        },
+        superAttack() {
+            monsterHealth.health -= Math.floor(Math.random() * 30);
+            yourHealth.health -= Math.floor(Math.random() * 30);            
+        },
+        heal() {
+            yourHealth.health += Math.floor(Math.random() * 15);            
+        },
+    },
+})
+
+const yourHealth = new Vue({
+    el: '#you',
+    data: {
+        health: 100,
+    },
+})
+
+const monsterHealth = new Vue({
+    el: '#rival',
+    data: {
+        health: 100,
     },
 })
 
@@ -46,26 +64,6 @@ const playButtons = new Vue({
 
 
 //====================================TESTING
-var app = new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue!'
-    }
-})
-
-var app2 = new Vue({
-    el: '#app-2',
-    data: {
-        message: 'You loaded this page on ' + new Date().toLocaleString()
-    }
-})
-
-var app3 = new Vue({
-    el: '#app-3',
-    data: {
-        seen: true
-    }
-})
 
 var app4 = new Vue({
     el: '#app-4',
