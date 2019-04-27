@@ -1,48 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css" media="screen" title="no title">
-    <title>JavaScript</title>
-  </head>
-  <body>
-    <h1>Práctica JavaScript (11/10/2016)</h1>
-    <section id='Ejercicio1'>
-      <h2>Cambiar colores</h2>
-      <p>
-        Rojo si es menor a 4
-        Azul si es mayor a 4
-      </p>
-      <button type="button" id="boton" onclick="cambiaColor()">Cambia color</button>
-    </section>
-    <section id='Ejercicio2'>
-      <h2>Función con parámetros</h2>
-      <p>
-        Revisar consola para resultados
-      </p>
-      <button type="button" onclick="contador(prompt('Escribe un número'), prompt('Escribe una letra'))">Función</button>
-    </section>
-    <section id='Ejericio3'>
-      <h2>Sucesión de Fibonacci</h2>
-      <p>
-        Revisar consola para resultados
-      </p>
-      <input id="vueltasFib" type="text" name="fiboCont" placeholder="Número de vueltas">
-      <button id="fibon" type="button" onclick="fibonacci()">Fibonacci</button>
-    </section>
-    <section>
-      <h2>¿Es palindromo?</h2>
-      <input id="oracion" type="text" name="inputOracion" placeholder="Oración a comprobar">
-      <button id="pal" type="button" name="button" onclick="palindromo()">Comprobar</button>
-    </section>
-    <section>
-      <h2>Encuentra repetidos</h2>
-      <p>
-        Separar cada numero con un espacio
-      </p>
-      <input id="numeros" type="text" placeholder="Números">
-      <button id="cons" type="button" name="button" onclick="repetidos()">Consulta</button>
-    </section>
-    <script type="text/javascript" src='script.js'></script>
-  </body>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<script type="text/javascript" src='script.js'></script>
+	<style>
+		body {
+			font-family: "Segoe UI", sans-serif;
+			background-color: #031926;
+		}
+
+		.card {
+			border-color: black;
+			border-style: solid;
+			margin-bottom: 20px;
+			color: black;
+			padding: 25px;
+			width: 100%;
+		}
+	</style>
+	<title>Ejercicios JavaScript</title>
+</head>
+
+<body>
+	<section id="section" class="section hero is-fullheight">
+		<div class="container is-centered">
+			<h1 class="title has-text-white has-text-centered">Práctica JavaScript (11/10/2016)</h1>
+			<div class="columns is-multiline">
+				<div class="column card">
+					<h2 class="subtitle">Cambiar colores</h2>
+					<p> Rojo si es menor a 4</p>
+					<p> Azul si es mayor a 4</p>
+					<button class="button" onclick="cambiaColor()">Cambia color</button>
+				</div>
+				<div class="column card">
+					<h2 class="subtitle">Función con parámetros</h2>
+					<p> Revisar consola para resultados</p>
+					<button class="button"
+						onclick="contador(prompt('Escribe un número'), prompt('Escribe una letra'))">Función</button>
+				</div>
+			</div>
+			<div class="columns is-multiline">
+				<div class="column card">
+					<h2 class="subtitle">Sucesión de fibonacci</h2>
+					<p>Revisar consola para resultados</p>
+					<div class="field has-addons">
+						<div class="control">
+							<input id="vueltasFib" class="input" type="text" placeholder="Número de vueltas">
+						</div>
+						<div class="control">
+							<button id="fibonacci" class="button is-link" onclick="fibonacci()">Fibonacci</button>
+						</div>
+					</div>
+				</div>
+				<div class="column card">
+					<h2 class="subtitle">¿Es palindromo?</h2>
+					<p>Revisar consola para resultados</p>
+					<div class="field has-addons">
+						<div class="control">
+							<input id="oracion" class="input" type="text" placeholder="Oración o palabra">
+						</div>
+						<div class="control">
+							<button class="button is-link" onclick="palindromo()">Comprobar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="columns is-multiline">
+				<div class="column card">
+					<h2 class="subtitle">Encuentra repetidos</h2>
+					<p>Separar cada numero con un espacio</p>
+					<div class="field has-addons">
+						<div class="control">
+							<input id="numeros" class="input" type="text" placeholder="Numeros">
+						</div>
+						<div class="control">
+							<button class="button is-link" onclick="repetidos()">Consulta</button>
+						</div>
+					</div>
+				</div>
+				<div class="column card">
+
+				</div>
+			</div>
+	</section>
+
+</body>
+
 </html>
