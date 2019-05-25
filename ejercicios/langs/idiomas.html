@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	<script src="script.js"></script> 
+	<script src="script.js"></script>
 	<style>
 		#tarjetas {
 			display: flex;
@@ -18,7 +18,7 @@
 			border-style: solid;
 			padding: 30px;
 			width: 300px;
-			height: 325px;
+			height: auto;
 		}
 	</style>
 </head>
@@ -79,8 +79,18 @@
 				<button class="delete" aria-label="close" onclick="activeModal()"></button>
 			</header>
 			<section id="modal-text" class="modal-card-body">
-
-
+				<table id="tabla" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+					<thead>
+						<tr style="background-color: black" class="is-selected">
+							<th>Curso</th>
+							<th>Profesor</th>
+							<th>Nivel</th>
+							<th>Precio con descuento</th>
+						</tr>
+					</thead>
+					<tbody id="table-body">
+					</tbody>
+				</table>
 			</section>
 
 			<footer class="modal-card-foot">

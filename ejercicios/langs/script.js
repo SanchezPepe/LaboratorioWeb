@@ -125,27 +125,45 @@ function createCard(idioma, precio, profesor, descuento, niveles) {
 }
 
 function generaReporte() {
+    document.getElementById("table-body").remove();
+    var body = document.createElement("tbody");
+    body.id = "table-body";
+    document.getElementById("tabla").appendChild(body);
+    
     var container = document.getElementById("tarjetas");
     var childs = container.childNodes;
     if (childs[0] == undefined) {
         var r = childs.shift();
     }
+    var text = "";
     var lang, precio, prof, level;
-    var text = "<strong>";
     var total = 0;
+    var results = document.getElementById("table-body");
     for (i = 0; i < childs.length; i++) {
+        var row = document.createElement("tr");
+        text = "";
         lang = childs[i].id;
         precio = childs[i].childNodes[1].childNodes[4].textContent;
-        prof = childs[i].childNodes[1].childNodes[6].textContent;
+        prof = childs[i].childNodes[1].childNodes[6].textContent.replace("Profesor: ", "");
         level = childs[i].childNodes[2].childNodes[0].value;
+        price = parseFloat(precio.replace("Precio con descuento: $", ""));
+        total += price;
 
-        total += parseFloat(precio.replace("Precio con descuento: $", ""));
-        text += lang + "<br/>" + precio + "<br/>" + prof + "<br/>Nivel: " + level + "<br/>";
-        text += "-----------------------------------------------------<br/>"
-        console.log(lang, precio, prof, level);
+        text += "<td>" + lang + "</td>" +
+            "<td>" + prof + "</td>" +
+            "<td>" + level + "</td>" +
+            "<td>$ " + price + "</td>";
+        row.innerHTML = text;
+        results.appendChild(row);
     }
-    text += "TOTAL: " + Number((total).toFixed(2));
-    document.getElementById("modal-text").innerHTML = text + "</strong>";
+    var row = document.createElement("tr");
+    text = ""; 
+    text += "<th>" + "" + "</th>" +
+            "<th>" + "" + "</th>" +
+            "<th>" + "TOTAL" + "</th>" +
+            "<th>$ " + Number((total).toFixed(2)) + "</th>";
+    row.innerHTML = text;
+    results.appendChild(row);
     activeModal();
 }
 
