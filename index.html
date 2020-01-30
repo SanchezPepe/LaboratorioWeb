@@ -7,59 +7,121 @@
     <title>Laboratorio de Desarrollo Web</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-    <script src="https://www.vantajs.com/dist/vanta.topology.min.js"></script>
-    <script src="https://www.vantajs.com/vendor/three.r92.min.js"></script>
     <script>
-        setTimeout(function () {
-            VANTA.TOPOLOGY({
-                el: "#vantajs"
-            })
-        }, 5)
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+            }
+
+        });
     </script>
     <style>
-        html,
-        body {
-            height: 100%;
+        a:hover {
+            background-color: black !important;
         }
 
-        .is-sidebar-menu li a {
-            color: white;
-        }
-
-        .is-sidebar-menu p {
-            color: #0B6E4F;
-        }
-
-        .title {
-            color: rgb(0, 114, 112);
+        .hero-body {
+            padding-top: 0% !important;
+            margin-top: 0 !important;
         }
     </style>
 </head>
 
-<body id="vantajs">
-    <section class="section is-sidebar-menu">
-        <div class="container">
+<!-- <body id="vantajs"> -->
+<section class="hero is-dark is-bold is-fullheight">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        <header class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item subtitle has-text-weight-bold">
+                        Wil ITAM
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenuHeroC" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item has-text-weight-bold" href="http://www.wil.itam.mx" target="_blank">
+                            WIL
+                        </a>
+                        <a class="navbar-item has-text-weight-bold" href="http://www.wil.itam.mx" target="_blank">
+                            Github
+                        </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
 
-            <h1 class="title">Laboratorio de Desarrollo Web ITAM</h1>
-            <aside class="menu has-text-weight-bold">
-                <p class="menu-label is-size-6">Ejercicios de introducción</p>
-                <ul class="menu-list is-size-5">
-                    <li><a href="ejercicios/pyramids.html">Pirámide de base N</a></li>
-                    <li><a href="ejercicios/cards.html">Tarjetas dinámicas</a></li>
-                    <li><a href="ejercicios/langs/idiomas.html">API Idiomas</a></li>
-                    <li><a href="ejercicios/game/youVsMonster.html">Vue.js Game</a></li>
-                </ul>
-                <p class="menu-label is-size-6">Ejercicios Curso Desarrollo Web, Otoño 2016</p>
-                <ul class="menu-list is-size-5">
-                    <li><a href="recursos/Contenedores/index.html">Contenedores de HTML: ejemplo gráfico</a></li>
-                    <li><a href="recursos/GoogleCopy/index.html">Google copy: práctica CSS</a></li>
-                    <li><a href="recursos/Piedra_Papel_Tijera_JS/index.html">Piedra, papel o tijera: JS</a></li>
-                    <li><a href="recursos/PracticaJS/index.html">Ejemplos Javascript</a></li>
-                </ul>
-            </aside>
-            </ul>
+    <!-- Hero content: will be in the middle -->
+    <h1 class="title has-text-centered" style="padding-top: 3%; margin-bottom: 0%;">Laboratorio de Desarrollo Web</h1>
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <aside class="menu has-text-weight-bold">
+                        <p class="menu-label is-size-6">Ejercicios de introducción</p>
+                        <ul class="menu-list is-size-5">
+                            <li><a target="_blank" href="ejercicios/pyramids.html">Pirámide de base N</a
+                                    target="_blank">
+                            </li>
+                            <li><a target="_blank" href="ejercicios/cards.html">Tarjetas dinámicas</a></li>
+                            <li><a target="_blank" href="ejercicios/langs/idiomas.html">API Idiomas</a></li>
+                            <li><a target="_blank" href="ejercicios/game/youVsMonster.html">Vue.js Game</a></li>
+                        </ul>
+                        <p class="menu-label is-size-6">Ejercicios Curso Desarrollo Web, Otoño 2016</p>
+                        <ul class="menu-list is-size-5">
+                            <li><a target="_blank" href="recursos/Contenedores/index.html">Contenedores de HTML: ejemplo
+                                    gráfico</a>
+                            </li>
+                            <li><a target="_blank" href="recursos/GoogleCopy/index.html">Google copy: práctica CSS</a>
+                            </li>
+                            <li><a target="_blank" href="recursos/Piedra_Papel_Tijera_JS/index.html">Piedra, papel o
+                                    tijera:
+                                    JS</a></li>
+                            <li><a target="_blank" href="recursos/PracticaJS/index.html">Ejemplos Javascript</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="column">
+                    <aside class="menu has-text-weight-bold">
+                        <p class="menu-label is-size-6">Recursos y ligas de interés</p>
+                        <ul class="menu-list is-size-5">
+                            <li><a target="_blank" href="https://www.freecodecamp.org/learn">FreeCodeCamp</a></li>
+                            <li><a target="_blank" href="https://eloquentjavascript.net/ ">Eloquent Javascript</a></li>
+                            <li><a target="_blank" href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN Web
+                                    Docs</a></li>
+                            <li><a target="_blank" href="https://www.w3schools.com/js/default.asp">W3Schools</a></li>
+                            <li><a target="_blank" href="https://codepen.io/">Code Pen</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
         </div>
-    </section>
-</body>
+    </div>
+</section>
 
 </html>
